@@ -29,4 +29,18 @@ public class DuenoDAO {
         return lista;
     }
 
+    public boolean insertar(Dueno dueno) throws SQLException {
+        String sql = "INSERT INTO duenos (nombre, telefono, direccion) VALUES (?, ?, ?)";
+
+        try (Connection con = Conexion.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, dueno.getNombre());
+            ps.setString(2, dueno.getTelefono());
+            ps.setString(3, dueno.getDireccion());
+
+            return ps.executeUpdate() > 0;
+        }
+    }
+
 }

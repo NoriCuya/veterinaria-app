@@ -3,9 +3,11 @@ package vallegrande.edu.pe.view;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -16,6 +18,26 @@ public class MainView extends Application {
 
     @Override
     public void start(Stage stage) {
+        MainController controller = new MainController();
+
+        // Formulario
+        Label tituloForm = new Label("REGISTRO DE DUEÑO");
+        tituloForm.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
+
+        TextField txtNombre = new TextField();
+        txtNombre.setPromptText("Nombre");
+
+        TextField txtTelefono = new TextField();
+        txtTelefono.setPromptText("Teléfono");
+
+        TextField txtDireccion = new TextField();
+        txtDireccion.setPromptText("Dirección");
+
+        Button btnRegistrar = new Button("REGISTRAR");
+        btnRegistrar.setMaxWidth(Double.MAX_VALUE);
+        btnRegistrar.setStyle("-fx-background-color: #0284c7; -fx-text-fill: white; -fx-font-weight: bold;");
+
+        // Tabla
         TableView<Dueno> tabla = new TableView<>();
 
         TableColumn<Dueno, Integer> colId = new TableColumn<>("ID");
@@ -36,16 +58,21 @@ public class MainView extends Application {
         tabla.getColumns().add(colDireccion);
         tabla.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-        new MainController().cargarTabla(tabla);
+        // Evento del botón
+        btnRegistrar.setOnAction(e ->
+                controller.registrar(txtNombre, txtTelefono, txtDireccion, tabla));
 
-        Label titulo = new Label("LISTADO DE DUEÑOS");
-        titulo.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
+        controller.cargarTabla(tabla);
 
-        VBox root = new VBox(10, titulo, tabla);
+        Label tituloTabla = new Label("LISTADO DE DUEÑOS");
+        tituloTabla.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
+
+        VBox root = new VBox(10, tituloForm, txtNombre, txtTelefono, txtDireccion,
+                btnRegistrar, tituloTabla, tabla);
         root.setPadding(new Insets(15));
 
         stage.setTitle("Veterinaria - Dueños");
-        stage.setScene(new Scene(root, 650, 400));
+        stage.setScene(new Scene(root, 650, 550));
         stage.show();
     }
 
