@@ -1,0 +1,54 @@
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #F1F5F9;
+}
+.header {
+    -fx-background-color: linear-gradient(to right, #1A365D, #2B6CB0);
+}
+.titulo { -fx-font-size: 26pt; -fx-font-weight: bold; -fx-text-fill: white; }
+.subtitulo { -fx-font-size: 11pt; -fx-text-fill: #BEE3F8; }
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+}
+.card-title { -fx-font-size: 14pt; -fx-font-weight: bold; -fx-text-fill: #1A365D; }
+.campo-label { -fx-font-size: 10pt; -fx-font-weight: bold; -fx-text-fill: #4A5568; }
+.text-field {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #CBD5E0;
+    -fx-padding: 8 10 8 10;
+}
+.text-field:focused {
+    -fx-border-color: #2B6CB0;
+    -fx-effect: dropshadow(gaussian, rgba(43,108,176,0.35), 8, 0, 0, 0);
+}
+.text-field:disabled { -fx-background-color: #EDF2F7; }
+.boton {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 9 16 9 16;
+    -fx-cursor: hand;
+}
+.boton-reg { -fx-background-color: #2B6CB0; }
+.boton-act { -fx-background-color: #319795; }
+.boton-eli { -fx-background-color: #E53E3E; }
+.boton:hover { -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 3); }
+.table-view { -fx-background-color: transparent; -fx-border-color: #E2E8F0; -fx-border-radius: 8; }
+.table-view .column-header-background { -fx-background-color: #EDF2F7; }
+.table-view .column-header .label { -fx-font-weight: bold; -fx-text-fill: #1A365D; }
+.table-row-cell { -fx-cell-size: 38px; -fx-border-color: transparent; }
+.table-row-cell:odd { -fx-background-color: #F7FAFC; }
+.table-row-cell:hover { -fx-background-color: #EBF8FF; }
+.table-row-cell:selected { -fx-background-color: #BEE3F8; }
+.table-row-cell:selected .text { -fx-fill: #1A365D; }
+.stat {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 12 24 12 24;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 12, 0, 0, 2);
+}
+.stat-num { -fx-font-size: 18pt; -fx-font-weight: bold; -fx-text-fill: #2B6CB0; }
+.stat-txt { -fx-font-size: 9pt; -fx-text-fill: #718096; }
